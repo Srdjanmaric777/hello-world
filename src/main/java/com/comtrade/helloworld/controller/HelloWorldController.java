@@ -1,12 +1,13 @@
 package com.comtrade.helloworld.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 public class HelloWorldController {
-    @GetMapping("/hello-world")
+    @GetMapping("/hello")
     public String HelloWorld() {
-        return "Hello World";
+        return "hello";
     }
 }
