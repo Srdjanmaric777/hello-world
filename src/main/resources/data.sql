@@ -1,0 +1,10 @@
+INSERT INTO LANGUAGES (language, word) VALUES ('English', 'Hello World!');
+INSERT INTO LANGUAGES (language, word) VALUES ('German', 'Hallo Welt!');
+INSERT INTO LANGUAGES (language, word) VALUES ('French', 'Bonjour monde!');
+INSERT INTO LANGUAGES (language, word) VALUES ('Norwegian', 'Hei Verden!');
+INSERT INTO LANGUAGES (language, word) VALUES ('Romanian', 'Salut Lume!');
+INSERT INTO LANGUAGES (language, word) VALUES ('Spanish', 'Hola Mundo!');
+INSERT INTO LANGUAGES (language, word) VALUES ('Estonian', 'Tere maailm!');
+INSERT INTO LANGUAGES (language, word) VALUES ('Finnish', 'Hesi maailma!');
+INSERT INTO LANGUAGES (language, word) VALUES ('Basque', 'Kaixo Mundua!');
+INSERT INTO LANGUAGES (language, word) VALUES ('Hausa', 'Sannu Duniya!');
