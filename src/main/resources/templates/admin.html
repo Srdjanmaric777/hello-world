@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Page</title>
+</head>
+
+<body>
+    <h1 th:inline="text">Amin Page!</h1>
+
+    <div>
+        <form action="#" th:action="@{/admin}" th:object="${message}" method="post" >
+            <input type="text" th:field="*{language}" placeholder="language">
+            <input type="text" th:field="*{word}" placeholder="word">
+            <button type="submit">Add</button>
+        </form>
+    </div>
+
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out"/>
+    </form>
+
+</body>
+
+</html>
