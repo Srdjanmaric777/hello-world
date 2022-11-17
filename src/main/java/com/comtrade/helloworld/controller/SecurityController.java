@@ -31,7 +31,17 @@ public class SecurityController {
 
     @PostMapping ("/admin")
     public String postAdminPage(@ModelAttribute("message") HelloWorld helloWorld) {
-        repo.save(helloWorld);
+
+        boolean mess = false;
+        for (HelloWorld helloWorld1 : repo.findAll()) {
+            if(helloWorld1.getLanguage().equalsIgnoreCase(helloWorld.getLanguage())) {
+                mess = true;
+            }
+        }
+
+        if(!mess)
+            repo.save(helloWorld);
+
         return "admin";
     }
 
