@@ -13,6 +13,15 @@ public class SecurityController {
     @Autowired
     HelloWorldRepository repo;
 
+    @GetMapping("/secure/hello")
+    public String secureHelloPage() {
+        return "securehello";
+    }
+
+    @GetMapping("/login")
+    public String loginHelloPage() {
+        return "login";
+    }
 
     @GetMapping("/admin")
     public String adminPage(Model modelMessage, HelloWorld helloWorld) {
