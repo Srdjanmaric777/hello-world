@@ -3,6 +3,7 @@ package com.comtrade.helloworld.controller;
 import com.comtrade.helloworld.model.HelloWorld;
 import com.comtrade.helloworld.repository.HelloWorldRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +13,7 @@ import java.util.List;
 
 
 @Controller
+@Profile("database")
 public class HelloWorldController {
 
     @Autowired

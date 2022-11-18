@@ -5,10 +5,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Secure Hello World</title>
+    <link rel="stylesheet" th:href="@{/main.css}"/>
 </head>
 
 <body>
-    <h1 th:inline="text">Secure Hello World!</h1>
+    <main role="main" class="container">
+        <div class="starter-template">
+            <h1 th:inline="text">Secure Hello World!</h1>
+        </div>
+    </main>
     <form th:action="@{/logout}" method="post">
         <input type="submit" value="Sign Out"/>
     </form>

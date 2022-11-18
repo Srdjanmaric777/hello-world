@@ -1,5 +1,6 @@
 package com.comtrade.helloworld.controller;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,9 +14,10 @@ import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 
 @Controller
+@Profile("externalAPI")
 public class ExternalAPIController {
 
-    @GetMapping("/api/hello/{language}")
+    @GetMapping("/hello/{language}")
     String getExternal(Model modelMessage, @PathVariable(value = "language") String language) throws IOException, InterruptedException {
 
         String target = getTarget(language);
