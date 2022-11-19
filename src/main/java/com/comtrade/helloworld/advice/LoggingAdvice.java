@@ -15,7 +15,9 @@ public class LoggingAdvice {
 
     Logger logger = LoggerFactory.getLogger(LoggingAdvice.class);
 
-    @Pointcut(value = "execution(* com.comtrade.helloworld.controller.HelloWorldController.*(..)) || execution(* com.comtrade.helloworld.controller.HelloWorldRestController.*(..))")
+    @Pointcut(value = "execution(* com.comtrade.helloworld.controller.HelloWorldController.*(..)) " +
+            "|| execution(* com.comtrade.helloworld.controller.HelloWorldRestController.*(..)) " +
+            "|| execution(* com.comtrade.helloworld.controller.DBController.*(..))")
     public void pointcutJoinPoint() {
 
     }

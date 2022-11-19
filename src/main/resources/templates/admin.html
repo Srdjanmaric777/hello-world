@@ -5,21 +5,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin Page</title>
+    <link rel="stylesheet" th:href="@{/admin.css}"/>
 </head>
 
 <body>
-    <h1 th:inline="text">Amin Page!</h1>
-
-    <div>
-        <form action="#" th:action="@{/admin}" th:object="${message}" method="post" >
-            <input type="text" th:field="*{language}" placeholder="language">
-            <input type="text" th:field="*{word}" placeholder="word">
-            <button type="submit">Add</button>
-        </form>
-    </div>
+    <form class="admin-a" action="#" th:action="@{/admin}" th:object="${message}" method="post" >
+        <h1 class="title">Admin Page</h1>
+        <input class="input" type="text" th:field="*{language}" placeholder="Language">
+        <input class="input" type="text" th:field="*{word}" placeholder="Message">
+        <button class="input submit" type="submit">Add Message</button>
+    </form>
 
     <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Sign Out"/>
+        <input class="input sign-out" type="submit" value="Sign Out"/>
     </form>
 
 </body>

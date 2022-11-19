@@ -1,0 +1,65 @@
+.admin-a {
+  padding-top:10rem;
+  width: 18rem;
+  margin: auto;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  text-align: center;
+}
+.title {
+  margin: 0 0 1.5rem;
+  padding: 0;
+  font-size: 2.5rem;
+  line-height: 1;
+  font-weight: 300;
+  color: #fff;
+}
+.input {
+  box-sizing: border-box;
+  display: block;
+  margin: 0 0 1.2rem;
+  padding: 0 1rem;
+  width: 100%; height: 3rem;
+  appearance: none;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: #556;
+  text-align: center;
+  border: 0;
+  border-radius: 1.5rem;
+  background: #fff;
+}
+.submit {
+  margin-bottom: 1.2rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: #fff;
+  background: #00B0FF;
+  transition: 200ms;
+}
+.submit:hover {
+  background: #10C0FF;
+}
+.sign-out {
+  margin: auto;
+  width: 18rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: #fff;
+  background: #B22222;
+  transition: 200ms;
+}
+.sign-out:hover {
+  background: #DC143C;
+}
+.er-ror {
+  margin: 0 0 1rem;
+  color: #B22222;
+  font-size: 1.2rem;
+  font-weight: 300;
+  text-align: center;
+}
+body {
+  background: #34495e;
+}

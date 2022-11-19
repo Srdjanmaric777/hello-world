@@ -16,25 +16,27 @@ public class DatabaseConfig {
     CommandLineRunner commandLineRunner(
             HelloWorldRepository repository) {
         return args -> {
-            List<HelloWorld> lists = List.of(
-                    new HelloWorld("English","Hello World!"),
-                    new HelloWorld("German","Hallo Welt!"),
-                    new HelloWorld("French","Bonjour monde!"),
-                    new HelloWorld("Norwegian","Hei Verden"),
-                    new HelloWorld("Romanian","Salut Lume!"),
-                    new HelloWorld("Spanish","Hola Mundo!"),
-                    new HelloWorld("Estonian","Tere maailm!"),
-                    new HelloWorld("Finnish","Hei maailma!"),
-                    new HelloWorld("Danish","Hej Verden!"),
-                    new HelloWorld("Indonesian","Halo Dunia!")
-            );
+            if(repository.findAll().isEmpty()){
 
-            for (HelloWorld helloWorld:repository.findAll()) {
-                if(!lists.contains(helloWorld))
-                    repository.save(helloWorld);
+                List<HelloWorld> lists = List.of(
+                        new HelloWorld("English","Hello World!"),
+                        new HelloWorld("German","Hallo Welt!"),
+                        new HelloWorld("French","Bonjour monde!"),
+                        new HelloWorld("Norwegian","Hei Verden"),
+                        new HelloWorld("Romanian","Salut Lume!"),
+                        new HelloWorld("Spanish","Hola Mundo!"),
+                        new HelloWorld("Estonian","Tere maailm!"),
+                        new HelloWorld("Finnish","Hei maailma!"),
+                        new HelloWorld("Danish","Hej Verden!"),
+                        new HelloWorld("Indonesian","Halo Dunia!")
+                );
+
+                for (HelloWorld helloWorld:repository.findAll()) {
+                    if(!lists.contains(helloWorld))
+                        repository.save(helloWorld);
+                }
+
             }
-
         };
     }
-
 }

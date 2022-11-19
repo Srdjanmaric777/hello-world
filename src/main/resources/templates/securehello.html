@@ -11,12 +11,12 @@
 <body>
     <main role="main" class="container">
         <div class="starter-template">
-            <h1 th:inline="text">Secure Hello World!</h1>
+            <h1 class="title" th:inline="text">Secure Hello World!</h1>
         </div>
+        <form th:action="@{/logout}" method="post">
+            <input class="sign-out" type="submit" value="Sign Out"/>
+        </form>
     </main>
-    <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Sign Out"/>
-    </form>
 </body>
 
 </html>

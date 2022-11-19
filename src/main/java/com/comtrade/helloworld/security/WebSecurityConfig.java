@@ -20,18 +20,29 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(
-                (requests) -> requests
-                        .antMatchers("/admin").hasRole("ADMIN")
-                        .antMatchers("/secure/hello").authenticated()
-                        .antMatchers("/**").permitAll()
-                        .antMatchers("/h2/**").permitAll()
-                )
-                .formLogin((form) -> form
+                (requests) -> {
+                    try {
+                        requests
+                                .antMatchers("/admin").hasRole("ADMIN")
+                                .antMatchers("/secure/hello").authenticated()
+                                .antMatchers("/**").permitAll()
+                                .antMatchers("/h2/**").permitAll()
+                                .and().formLogin()
+                                .loginPage("/login")
+                                .permitAll()
+                                .and().logout()
+                                .logoutSuccessUrl("/hello");
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                );
+                /*.formLogin((form) -> form
                         .loginPage("/login")
                         .permitAll()
                 )
                 .logout()
-                .logoutSuccessUrl("/hello");
+                .logoutSuccessUrl("/hello");*/
 
         http.csrf().disable();
         http.headers().frameOptions().disable();

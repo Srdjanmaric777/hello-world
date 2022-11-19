@@ -18,7 +18,7 @@ import java.nio.charset.StandardCharsets;
 public class ExternalAPIController {
 
     @GetMapping("/hello/{language}")
-    String getExternal(Model modelMessage, @PathVariable(value = "language") String language) throws IOException, InterruptedException {
+    public String getTranslationsFromAPI(Model modelMessage, @PathVariable(value = "language") String language) throws IOException, InterruptedException {
 
         String target = getTarget(language);
 
