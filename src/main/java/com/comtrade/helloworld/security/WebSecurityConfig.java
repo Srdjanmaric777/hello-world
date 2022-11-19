@@ -23,7 +23,7 @@ public class WebSecurityConfig {
                 (requests) -> {
                     try {
                         requests
-                                .antMatchers("/admin").hasRole("ADMIN")
+                                .antMatchers("/admin").authenticated()
                                 .antMatchers("/secure/hello").authenticated()
                                 .antMatchers("/**").permitAll()
                                 .antMatchers("/h2/**").permitAll()
@@ -54,19 +54,19 @@ public class WebSecurityConfig {
         UserDetails admin =
                 User.withUsername("admin")
                         .password(passwordEncoder().encode("password"))
-                        .roles("ADMIN")
+                        .authorities("ADMIN")
                         .build();
 
         UserDetails user1 =
                 User.withUsername("user1")
                         .password(passwordEncoder().encode("password1"))
-                        .roles("USER")
+                        .authorities("USER")
                         .build();
 
         UserDetails user2 =
                 User.withUsername("user2")
                         .password(passwordEncoder().encode("password2"))
-                        .roles("USER")
+                        .authorities("USER")
                         .build();
 
         return new InMemoryUserDetailsManager(admin, user1, user2);

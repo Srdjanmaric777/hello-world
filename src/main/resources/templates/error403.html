@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Error 403 Page</title>
+    <link rel="stylesheet" th:href="@{/error403.css}"/>
+</head>
+
+<body>
+<main role="main" class="container">
+    <div class="starter-template">
+        <h1 class="title" th:text="${message}"></h1>
+    </div>
+    <form th:action="@{/error403}" method="post">
+        <input class="submit" type="submit" value="Go to your page"/>
+    </form>
+</main>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+body {
+  padding-top: 5rem;
+  background-color: #B22222;
+}
+.starter-template {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+.title {
+  font-size: 4.5rem;
+  font-weight: 300;
+  color: #fff;
+}
+.submit{
+  box-sizing: border-box;
+  display: block;
+  margin: auto;
+  width: 18rem;
+  height: 3rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-align: center;
+  border: 0;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  color: #fff;
+  background: #00B0FF;
+  transition: 200ms;
+}
+.submit:hover {
+  background: #10C0FF;
+}
