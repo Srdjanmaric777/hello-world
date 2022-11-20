@@ -1,0 +1,28 @@
+version: "3.9"
+services:
+  app_database:
+    container_name: springboot-postgresql
+    image: springboot-postgresql
+    build: .
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgresqldb:5432/helloworld
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgresqldb
+  web_external_api:
+    container_name: external_api
+    image: external_api
+    build: .
+    ports:
+      - "8081:8080"
+  postgresqldb:
+    restart: always
+    container_name: postgresql_db
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=eagle
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=helloworld
