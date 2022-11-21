@@ -45,5 +45,4 @@ public class LoggingAdvice {
                 " arguments : " +  mapper.writeValueAsString(object));
         return object;
     }
-
 }

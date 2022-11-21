@@ -5,8 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -30,7 +32,7 @@ public class ExternalAPIController {
                     .uri(URI.create("https://google-translate1.p.rapidapi.com/language/translate/v2"))
                     .header("content-type", "application/x-www-form-urlencoded")
                     .header("Accept-Encoding", "application/gzip")
-                    .header("X-RapidAPI-Key", "829bdfebb5msh119852c7aded65ep1354f8jsn508de12c7b00")
+                    .header("X-RapidAPI-Key", "6e35ed755fmsh9770bc385f97d71p166555jsn172cfe22ab75")
                     .header("X-RapidAPI-Host", "google-translate1.p.rapidapi.com")
                     .method("POST", HttpRequest.BodyPublishers.ofString("q=Hello%2C%20world!&target=" + target + "&source=en"))
                     .build();
@@ -62,5 +64,4 @@ public class ExternalAPIController {
             throw new RuntimeException(e);
         }
     }
-
 }

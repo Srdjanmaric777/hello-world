@@ -3,7 +3,6 @@ services:
   app_database:
     container_name: springboot-postgresql
     image: springboot-postgresql
-    build: .
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgresqldb:5432/helloworld
     ports:
@@ -13,16 +12,23 @@ services:
   web_external_api:
     container_name: external_api
     image: external_api
-    build: .
     ports:
       - "8081:8080"
   postgresqldb:
-    restart: always
     container_name: postgresql_db
     image: postgres
     ports:
-      - "5432:5432"
+      - "6543:5432"
     environment:
       - POSTGRES_PASSWORD=eagle
       - POSTGRES_USER=postgres
       - POSTGRES_DB=helloworld
+  nginx:
+    container_name: nginx
+    image: nginx:1.14.2
+    depends_on:
+      - app_database
+      - web_external_api
+      - postgresqldb
+    ports:
+      - "80:80"

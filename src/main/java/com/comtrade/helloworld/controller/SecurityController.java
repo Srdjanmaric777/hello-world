@@ -3,13 +3,17 @@ package com.comtrade.helloworld.controller;
 import com.comtrade.helloworld.model.HelloWorld;
 import com.comtrade.helloworld.repository.HelloWorldRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 @Controller
+@Profile("database")
 public class SecurityController {
 
     @Autowired
@@ -65,7 +69,6 @@ public class SecurityController {
         if(!mess)
             repo.save(helloWorld);
 
-        return "admin";
+        return "redirect:/admin";
     }
-
 }
