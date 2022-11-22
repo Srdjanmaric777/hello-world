@@ -11,6 +11,9 @@
 <body>
     <form class="admin-a" action="#" th:action="@{/admin}" th:object="${message}" method="post" >
         <h1 class="title">Admin Page</h1>
+        <div class="er-ror" th:text="${message1}">
+            Invalid username or password
+        </div>
         <input class="input" type="text" th:field="*{language}" placeholder="Language">
         <input class="input" type="text" th:field="*{word}" placeholder="Message">
         <button class="input submit" type="submit">Add Message</button>

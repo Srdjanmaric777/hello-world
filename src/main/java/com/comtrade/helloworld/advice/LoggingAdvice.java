@@ -4,7 +4,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.*;
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -17,7 +20,8 @@ public class LoggingAdvice {
 
     @Pointcut(value = "execution(* com.comtrade.helloworld.controller.HelloWorldController.*(..)) " +
             "|| execution(* com.comtrade.helloworld.controller.HelloWorldRestController.*(..)) " +
-            "|| execution(* com.comtrade.helloworld.controller.DBController.*(..))")
+            "|| execution(* com.comtrade.helloworld.controller.DBController.*(..))" +
+            "|| execution(* com.comtrade.helloworld.controller.ExternalAPIController.*(..))")
     public void pointcutJoinPoint() {
 
     }
@@ -33,16 +37,16 @@ public class LoggingAdvice {
         logger.info("Method invoked : " +
                 joinPoint.getTarget().getClass().getName() + " : " +
                 joinPoint.getSignature().getName() + "()" +
-                " arguments : " +  mapper.writeValueAsString(joinPoint.getArgs()));
+                " - arguments : " +  mapper.writeValueAsString(joinPoint.getArgs()));
     }
 
     @Around("pointcutProceed()")
     public Object proceedLogger(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         ObjectMapper mapper = new ObjectMapper();
         Object object = proceedingJoinPoint.proceed();
-        logger.info(proceedingJoinPoint.getTarget().getClass().getName() + " : " +
+        logger.info("Method invoked : " + proceedingJoinPoint.getTarget().getClass().getName() + " : " +
                 proceedingJoinPoint.getSignature().getName() + "()" +
-                " arguments : " +  mapper.writeValueAsString(object));
+                " - page : " +  mapper.writeValueAsString(object));
         return object;
     }
 }
