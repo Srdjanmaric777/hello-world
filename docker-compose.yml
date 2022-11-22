@@ -2,7 +2,7 @@ version: "3.9"
 services:
   app_database:
     container_name: springboot-postgresql
-    image: springboot-postgresql
+    image: srdjanmaric/springboot-postgresql
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgresqldb:5432/helloworld
     ports:
@@ -11,12 +11,12 @@ services:
       - postgresqldb
   web_external_api:
     container_name: external_api
-    image: external_api
+    image: srdjanmaric/external_api
     ports:
       - "8081:8080"
   postgresqldb:
     container_name: postgresql_db
-    image: postgres
+    image: srdjanmaric/postgres
     ports:
       - "6543:5432"
     environment:
@@ -25,7 +25,7 @@ services:
       - POSTGRES_DB=helloworld
   nginx:
     container_name: nginx
-    image: nginx:1.14.2
+    image: srdjanmaric/nginx:1.14.2
     depends_on:
       - app_database
       - web_external_api

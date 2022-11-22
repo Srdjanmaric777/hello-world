@@ -10,6 +10,6 @@ import java.util.Optional;
 
 @Repository
 public interface HelloWorldRepository extends JpaRepository<HelloWorld, Long> {
-    @Query("select h from HelloWorld h where upper(h.language) like upper(concat('%', ?1, '%'))")
+    @Query("select h from HelloWorld h where upper(h.language) like upper(?1)")
     Optional<HelloWorld> findByLanguage(String language);
 }
